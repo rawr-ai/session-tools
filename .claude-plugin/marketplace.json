@@ -1,0 +1,12 @@
+{
+  "name": "rawr-session-tools",
+  "description": "Focused Claude and Codex session-search skills for the Rawr Session Tools CLI.",
+  "owner": { "name": "Rawr" },
+  "plugins": [
+    {
+      "name": "session-tools",
+      "source": "./plugins/session-tools",
+      "description": "Search and recover context from local Claude and Codex conversations."
+    }
+  ]
+}

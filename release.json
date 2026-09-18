@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "version": "0.1.0",
+  "license": "MIT",
+  "cli": {
+    "name": "@rawr/session-tools",
+    "binary": "rawr-session-tools",
+    "asset": "rawr-session-tools-0.1.0.tgz",
+    "sha256": "e220b903df264ef88174b4c7ff8deb358de0c672f204b51922f0cfe0b73fbb64",
+    "runtime": "Bun >=1.3.14"
+  },
+  "sources": {
+    "implementation": {
+      "owner": "Rawr",
+      "commit": "58c91cb8bc526c220459127bb310cdf9698f5f3b"
+    },
+    "skills": {
+      "owner": "Marketplace",
+      "commit": "9e96dfec8a81ce3d3ed1d5718e162038f86d2e5a",
+      "paths": [
+        "plugins/agents/meta/skills/extract-workflow/SKILL.md",
+        "plugins/agents/meta/skills/introspect/SKILL.md",
+        "plugins/agents/meta/skills/introspect/references/workflow.md",
+        "plugins/agents/meta/skills/sessions/SKILL.md",
+        "plugins/agents/meta/skills/sessions/references/example-extract-workflow.md",
+        "plugins/agents/meta/skills/sessions/references/example-takeover.md",
+        "plugins/agents/meta/skills/sessions/references/session-ops.md",
+        "plugins/agents/meta/skills/sessions/references/session-structures.md",
+        "plugins/agents/meta/skills/takeover-session/SKILL.md",
+        "plugins/agents/meta/skills/takeover-session/references/analysis-playbook.md",
+        "plugins/agents/meta/skills/takeover-session/references/cli-recipes.md",
+        "plugins/agents/meta/skills/takeover-session/references/scratchpad-policy.md",
+        "plugins/agents/meta/skills/takeover-session/references/takeover-brief-template.md"
+      ]
+    }
+  },
+  "plugin": {
+    "name": "session-tools",
+    "marketplace": "rawr-session-tools",
+    "skills": [
+      "sessions",
+      "introspect",
+      "takeover-session",
+      "extract-workflow"
+    ],
+    "cliVersion": "0.1.0"
+  },
+  "inventory": [
+    {
+      "path": ".agents/plugins/marketplace.json",
+      "size": 392,
+      "sha256": "f63abbbcda07f9cfb827f39e95da51febca3f0dfdcd2d7a98280d763bb1e8b12"
+    },
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "size": 364,
+      "sha256": "de6c14c68b9df85ba5b089767b11027a7eefaea60fd7eac31f504efdfba0f6b4"
+    },
+    {
+      "path": "LICENSE",
+      "size": 1074,
+      "sha256": "e67a631ff561ee56b094f339e75ad5b4ada929af9e62a26c826230d9b7dacc87"
+    },
+    {
+      "path": "README.md",
+      "size": 4773,
+      "sha256": "4e423bf0f0fd73437df85675df983e65f2772fb00c6ef0aa61b968bc90113539"
+    },
+    {
+      "path": "plugins/session-tools/.claude-plugin/plugin.json",
+      "size": 325,
+      "sha256": "9d3da225cad28e504548bb19db804c02819cbb435d5d96033b3e50c584289e5e"
+    },
+    {
+      "path": "plugins/session-tools/.codex-plugin/plugin.json",
+      "size": 890,
+      "sha256": "b7236539012453cd256c0b40735982f4d0948133b34eb9b69100a2ffb1f1a5e1"
+    },
+    {
+      "path": "plugins/session-tools/LICENSE",
+      "size": 1074,
+      "sha256": "e67a631ff561ee56b094f339e75ad5b4ada929af9e62a26c826230d9b7dacc87"
+    },
+    {
+      "path": "plugins/session-tools/skills/extract-workflow/SKILL.md",
+      "size": 4127,
+      "sha256": "1b8174f275c946c181ca787784ae7c00a08a97f9c9663f4bf2aae6f8184db252"
+    },
+    {
+      "path": "plugins/session-tools/skills/introspect/SKILL.md",
+      "size": 3299,
+      "sha256": "c017c489bea6928412979abfabd22afe2bc7338d957938ce71aac74b559b3053"
+    },
+    {
+      "path": "plugins/session-tools/skills/introspect/references/workflow.md",
+      "size": 3719,
+      "sha256": "f611fd1c0140adf0b77906b64a02ae2fb61fbfe40f8e83dd2e19782dba865b08"
+    },
+    {
+      "path": "plugins/session-tools/skills/sessions/SKILL.md",
+      "size": 4406,
+      "sha256": "f483c33a1415f1ffdcdc86c18a02bf01e9826b8c6704e04637e74cc7e180ad4a"
+    },
+    {
+      "path": "plugins/session-tools/skills/sessions/references/example-extract-workflow.md",
+      "size": 1460,
+      "sha256": "2aa7c8ab5ea620fe78686343ef9215824efd76e2f34f9e343c0a46c11c55e7a5"
+    },
+    {
+      "path": "plugins/session-tools/skills/sessions/references/example-takeover.md",
+      "size": 1445,
+      "sha256": "180f1cd54a83f2e6568af6e096b3c3fc9b5dbb41a1bab2b34bfad77d526a91dc"
+    },
+    {
+      "path": "plugins/session-tools/skills/sessions/references/session-ops.md",
+      "size": 6962,
+      "sha256": "449c4be87c678ae5b16b09130f731c71eb516bb25eb2257a51b2f387e4a18246"
+    },
+    {
+      "path": "plugins/session-tools/skills/sessions/references/session-structures.md",
+      "size": 2455,
+      "sha256": "db81e0ec7dd2bbfb99bccd67f0522a16672a6e604a994e1a4828048722913d18"
+    },
+    {
+      "path": "plugins/session-tools/skills/takeover-session/SKILL.md",
+      "size": 4663,
+      "sha256": "f5e22b409e8bf2b0d496c4126d01bc51b196e35f6f4e85db969fc5e794ec7e4c"
+    },
+    {
+      "path": "plugins/session-tools/skills/takeover-session/references/analysis-playbook.md",
+      "size": 4804,
+      "sha256": "961cf649eaca11edafb64e2d4f5b98270f45234e0a09e4542c2f51443e511166"
+    },
+    {
+      "path": "plugins/session-tools/skills/takeover-session/references/cli-recipes.md",
+      "size": 3954,
+      "sha256": "8872d5d551c68cadfab35b9410c3a513305ffdb3852a3b679341334214c37af2"
+    },
+    {
+      "path": "plugins/session-tools/skills/takeover-session/references/scratchpad-policy.md",
+      "size": 2667,
+      "sha256": "021a9560a7bd8401e5ea479bcf878b070a843917f740ba393950c8b11ad57179"
+    },
+    {
+      "path": "plugins/session-tools/skills/takeover-session/references/takeover-brief-template.md",
+      "size": 1608,
+      "sha256": "d3c62077b21ada7eb0373ca589396b9e7ffd7edeeb24205a8cb404f87d9a158c"
+    }
+  ]
+}

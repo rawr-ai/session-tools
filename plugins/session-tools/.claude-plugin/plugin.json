@@ -1,0 +1,11 @@
+{
+  "name": "session-tools",
+  "version": "0.1.0",
+  "description": "Find, search, and recover context from local Claude and Codex conversations.",
+  "author": {
+    "name": "Rawr"
+  },
+  "homepage": "https://github.com/rawr-ai/session-tools",
+  "repository": "https://github.com/rawr-ai/session-tools",
+  "license": "MIT"
+}

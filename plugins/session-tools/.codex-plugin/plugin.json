@@ -1,0 +1,23 @@
+{
+  "name": "session-tools",
+  "version": "0.1.0",
+  "description": "Find, search, and recover context from local Claude and Codex conversations.",
+  "author": {
+    "name": "Rawr"
+  },
+  "homepage": "https://github.com/rawr-ai/session-tools",
+  "repository": "https://github.com/rawr-ai/session-tools",
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Session Tools",
+    "shortDescription": "Search Claude and Codex conversation history",
+    "longDescription": "Skills for finding conversations, inspecting local agent setup, recovering prior decisions, and extracting reusable workflows. Requires the separately installed rawr-session-tools CLI.",
+    "developerName": "Rawr",
+    "category": "Productivity",
+    "capabilities": [
+      "skills"
+    ],
+    "defaultPrompt": "Find a previous Claude or Codex conversation about my current project."
+  }
+}
