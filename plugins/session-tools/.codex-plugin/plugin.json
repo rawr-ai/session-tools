@@ -1,7 +1,7 @@
 {
   "name": "session-tools",
-  "version": "0.1.0",
-  "description": "Find, search, and recover context from local Claude and Codex conversations.",
+  "version": "0.1.1",
+  "description": "Native-first Claude/Codex conversation recovery, with optional cross-provider record evidence and metrics.",
   "author": {
     "name": "Rawr"
   },
@@ -11,8 +11,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Session Tools",
-    "shortDescription": "Search Claude and Codex conversation history",
-    "longDescription": "Skills for finding conversations, inspecting local agent setup, recovering prior decisions, and extracting reusable workflows. Requires the separately installed rawr-session-tools CLI.",
+    "shortDescription": "Native session recovery and record evidence",
+    "longDescription": "Use native tools or SDKs to find conversations, inspect agent setup, recover decisions, and extract workflows. The optional rawr-session-tools CLI adds cross-provider record queries and historical metrics.",
     "developerName": "Rawr",
     "category": "Productivity",
     "capabilities": [

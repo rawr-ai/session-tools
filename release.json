@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "cli": {
     "name": "@rawr/session-tools",
     "binary": "rawr-session-tools",
-    "asset": "rawr-session-tools-0.1.0.tgz",
-    "sha256": "e220b903df264ef88174b4c7ff8deb358de0c672f204b51922f0cfe0b73fbb64",
+    "asset": "rawr-session-tools-0.1.1.tgz",
+    "sha256": "90d41ccedba4b5458c8f210bc3905f22878f68bc89046dadc13df33e01e1596b",
     "runtime": "Bun >=1.3.14"
   },
   "sources": {
     "implementation": {
       "owner": "Rawr",
-      "commit": "58c91cb8bc526c220459127bb310cdf9698f5f3b"
+      "commit": "c9cb6396b178a88b74a8ae4fc3d19d48d534ace8"
     },
     "skills": {
       "owner": "Marketplace",
-      "commit": "9e96dfec8a81ce3d3ed1d5718e162038f86d2e5a",
+      "commit": "b2cbb295a9a3dd45a3ee35c0c6200a11c2390684",
       "paths": [
         "plugins/agents/meta/skills/extract-workflow/SKILL.md",
         "plugins/agents/meta/skills/introspect/SKILL.md",
@@ -43,7 +43,7 @@
       "takeover-session",
       "extract-workflow"
     ],
-    "cliVersion": "0.1.0"
+    "cliVersion": "0.1.1"
   },
   "inventory": [
     {
@@ -53,8 +53,8 @@
     },
     {
       "path": ".claude-plugin/marketplace.json",
-      "size": 364,
-      "sha256": "de6c14c68b9df85ba5b089767b11027a7eefaea60fd7eac31f504efdfba0f6b4"
+      "size": 369,
+      "sha256": "68cb0e1c1f09a01f93182420445c39878dff3ff8635efcaf33c13b3829b33413"
     },
     {
       "path": "LICENSE",
@@ -63,18 +63,18 @@
     },
     {
       "path": "README.md",
-      "size": 4773,
-      "sha256": "4e423bf0f0fd73437df85675df983e65f2772fb00c6ef0aa61b968bc90113539"
+      "size": 6296,
+      "sha256": "2fb6855676db5d22948119f92d08ac81ffeed0e0309ba9fbcd8796abee9028d9"
     },
     {
       "path": "plugins/session-tools/.claude-plugin/plugin.json",
-      "size": 325,
-      "sha256": "9d3da225cad28e504548bb19db804c02819cbb435d5d96033b3e50c584289e5e"
+      "size": 355,
+      "sha256": "dd15844d001cd150c533940237524e030d0d58a0d664e935f5d7ce7902b425f1"
     },
     {
       "path": "plugins/session-tools/.codex-plugin/plugin.json",
-      "size": 890,
-      "sha256": "b7236539012453cd256c0b40735982f4d0948133b34eb9b69100a2ffb1f1a5e1"
+      "size": 940,
+      "sha256": "a44cf1f1e2eb03b8ca20fbb44434c07aadcf9308fb6cee1f27fe6b19204e993e"
     },
     {
       "path": "plugins/session-tools/LICENSE",
@@ -83,58 +83,58 @@
     },
     {
       "path": "plugins/session-tools/skills/extract-workflow/SKILL.md",
-      "size": 4127,
-      "sha256": "1b8174f275c946c181ca787784ae7c00a08a97f9c9663f4bf2aae6f8184db252"
+      "size": 5378,
+      "sha256": "d210b4240d9915d298a00596669ca914b617bbd583203d0cb7b0656f61cada1b"
     },
     {
       "path": "plugins/session-tools/skills/introspect/SKILL.md",
-      "size": 3299,
-      "sha256": "c017c489bea6928412979abfabd22afe2bc7338d957938ce71aac74b559b3053"
+      "size": 3959,
+      "sha256": "9f8487aeb715b0df518d292eba4cc2b0d9a02d24b7cdab5b744391fcd3bd4ab0"
     },
     {
       "path": "plugins/session-tools/skills/introspect/references/workflow.md",
-      "size": 3719,
-      "sha256": "f611fd1c0140adf0b77906b64a02ae2fb61fbfe40f8e83dd2e19782dba865b08"
+      "size": 4933,
+      "sha256": "1f673e273a3f4eec34c858e45f7538a5b56f25d8415300a007cfcbaa5cefc5b3"
     },
     {
       "path": "plugins/session-tools/skills/sessions/SKILL.md",
-      "size": 4406,
-      "sha256": "f483c33a1415f1ffdcdc86c18a02bf01e9826b8c6704e04637e74cc7e180ad4a"
+      "size": 5486,
+      "sha256": "5530c2111e11a96ac98f06bd6e882dae63f323a79126458c4667c534a04c4edd"
     },
     {
       "path": "plugins/session-tools/skills/sessions/references/example-extract-workflow.md",
-      "size": 1460,
-      "sha256": "2aa7c8ab5ea620fe78686343ef9215824efd76e2f34f9e343c0a46c11c55e7a5"
+      "size": 1846,
+      "sha256": "5ec261af59f179f6b1e407a3e477a016bd17589bd53a88f060e46b6c72f302b0"
     },
     {
       "path": "plugins/session-tools/skills/sessions/references/example-takeover.md",
-      "size": 1445,
-      "sha256": "180f1cd54a83f2e6568af6e096b3c3fc9b5dbb41a1bab2b34bfad77d526a91dc"
+      "size": 1834,
+      "sha256": "0f065f8a7068f22e0ae41a5b5a0ea7a43aa0a7d7258bd43988ed1096f5c9d45e"
     },
     {
       "path": "plugins/session-tools/skills/sessions/references/session-ops.md",
-      "size": 6962,
-      "sha256": "449c4be87c678ae5b16b09130f731c71eb516bb25eb2257a51b2f387e4a18246"
+      "size": 10180,
+      "sha256": "f73a91b0d38a81001d19b68666890aa2a83d5d5a12bafe1fe2f735e0c24c81c7"
     },
     {
       "path": "plugins/session-tools/skills/sessions/references/session-structures.md",
-      "size": 2455,
-      "sha256": "db81e0ec7dd2bbfb99bccd67f0522a16672a6e604a994e1a4828048722913d18"
+      "size": 6356,
+      "sha256": "f5d0b7a638e75f0b976db3cfa78a1b36835b19fbf5655f50a47109ca07512de8"
     },
     {
       "path": "plugins/session-tools/skills/takeover-session/SKILL.md",
-      "size": 4663,
-      "sha256": "f5e22b409e8bf2b0d496c4126d01bc51b196e35f6f4e85db969fc5e794ec7e4c"
+      "size": 5412,
+      "sha256": "824c6df270188409c0ee023fd2b65f609d72e1cecd4efa7327f51a2e035ac0f6"
     },
     {
       "path": "plugins/session-tools/skills/takeover-session/references/analysis-playbook.md",
-      "size": 4804,
-      "sha256": "961cf649eaca11edafb64e2d4f5b98270f45234e0a09e4542c2f51443e511166"
+      "size": 5186,
+      "sha256": "404ddfb9f8494b48b4b80281eea12e2c5b24fab2b88bbfbe633a673f0ceb4b72"
     },
     {
       "path": "plugins/session-tools/skills/takeover-session/references/cli-recipes.md",
-      "size": 3954,
-      "sha256": "8872d5d551c68cadfab35b9410c3a513305ffdb3852a3b679341334214c37af2"
+      "size": 5242,
+      "sha256": "826f4e3e7d527fc4fe2171de755d94bc11fdb2089de6874481bb1f5932635c47"
     },
     {
       "path": "plugins/session-tools/skills/takeover-session/references/scratchpad-policy.md",
@@ -143,8 +143,8 @@
     },
     {
       "path": "plugins/session-tools/skills/takeover-session/references/takeover-brief-template.md",
-      "size": 1608,
-      "sha256": "d3c62077b21ada7eb0373ca589396b9e7ffd7edeeb24205a8cb404f87d9a158c"
+      "size": 1709,
+      "sha256": "447edf61c49d1c5d033d06c1989c89fec5e9c562fe8d7a9c1e3d247e498d1fbb"
     }
   ]
 }

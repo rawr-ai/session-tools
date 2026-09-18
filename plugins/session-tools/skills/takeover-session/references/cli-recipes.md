@@ -1,9 +1,20 @@
 # Session Takeover CLI Recipes
 
-Use `rawr-session-tools` 0.1.0 on Bun >=1.3.14. Consult the
+Use `rawr-session-tools` 0.1.1 on Bun >=1.3.14. Consult the
 [release README](https://github.com/rawr-ai/session-tools#readme) for installation.
 Check `rawr-session-tools --version` and the relevant subcommand's `--help`;
 do not substitute a private source checkout if the binary is unavailable.
+
+These optional recipes inspect `raw_record_evidence`, not native conversation
+replay or byte-faithful JSONL. Ordinary listing/reading/recovery uses available
+native Codex thread tools or installed Claude SDK read helpers first. The
+TypeScript SDK's `listSessions` and `getSessionMessages` were checked with
+0.3.276; verify installed options and use bounded reads. Resume/run operations
+are not an inspection fallback. For SDK details and Python's read API, consult the
+[official session guide](https://code.claude.com/docs/en/agent-sdk/sessions)
+and the installed SDK contract before using those helpers.
+If native reads are unavailable, report that limit. Do not silently substitute
+custom file-order parsing for the canonical conversation.
 
 ## Find And Resolve
 
@@ -15,8 +26,10 @@ rawr-session-tools sessions resolve "<id-or-path>" --format markdown
 ```
 
 Prefer the provider, repository, and date window from the current request.
-`--since` and `--until` filter file modification times. Confirm a candidate when
-a hint or prefix remains ambiguous, then preserve its exact source and path.
+`--since` and `--until` filter file modification times; invalid or reversed
+windows are rejected, not silently widened. Explicit `--source` constrains
+resolution. Confirm a candidate when a hint or prefix remains ambiguous, then
+preserve its exact source and path.
 
 ## Search Transcript Evidence
 
@@ -32,6 +45,8 @@ Do not automatically rebuild or cache transcript text. Codex discovery may
 already write a local index; `--use-index` may persist transcript text and
 `--reindex` clears the index before rebuilding. These are not zero-write
 operations, and cache replacement requires an explicit current decision.
+Search's `--index-path` selects cache storage in every mode, including metadata
+and facet search; it does not isolate provider discovery roots.
 
 ## Extract In Chronological Windows
 
@@ -68,6 +83,11 @@ This writes `metadata.json` and `transcript.chunk-001.md`, etc. Chunking divides
 the selected slice; it does not fetch missing pages. Split chunks require an
 output directory. Without chunking, `--out-dir` writes `metadata.json` and
 `transcript.md`. Human output becomes a pointer summary; `--quiet` suppresses it.
+
+For JSON instead, unchunked output is one transcript object; chunked `single`
+output is one array of transcript objects (`[]` for an empty selection). Each
+split JSON file is a standalone object. Overlap repeats evidence across chunks;
+do not interpret those repetitions as additional events.
 
 The CLI exports raw content without automatic secret removal. Do not export
 known sensitive content directly: inspect a bounded stream first, and create

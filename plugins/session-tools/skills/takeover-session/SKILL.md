@@ -37,8 +37,16 @@ This skill is self-contained and does not require other skills. If the `Sessions
 
 ## Tooling Primer (Standalone)
 
-Use `rawr-session-tools` 0.1.0 on Bun >=1.3.14. Check its version and the
-relevant subcommand's `--help` before proceeding. Installation belongs to the
+Ordinary listing, reading, and context recovery use available native Codex
+thread tools or installed Claude Agent SDK read helpers first; no CLI is
+required. Do not resume a model run merely to recover context. If a native
+reader is missing, disclose that limit instead of claiming a custom canonical
+fallback. Use the optional CLI below only for explicit filesystem record
+evidence. Its filtered, normalized `raw_record_evidence` view is not canonical
+replay or byte-faithful history. Record which view supports the brief.
+
+Filesystem recipes use `rawr-session-tools` 0.1.1 on Bun >=1.3.14. Check its
+version and the relevant subcommand's `--help` before proceeding. Installation belongs to the
 [release README](https://github.com/rawr-ai/session-tools#readme); no private
 source checkout is required.
 
@@ -48,7 +56,7 @@ rawr-session-tools sessions extract --help
 rawr-session-tools sessions list --source all --limit 5
 rawr-session-tools sessions search --query-metadata "<hint>" --source all --limit 5
 rawr-session-tools sessions resolve "<id-or-path>"
-rawr-session-tools sessions extract "<id-or-path>" --format markdown --no-dedupe --max-messages 100
+rawr-session-tools sessions extract "<resolved-exact-path>" --format markdown --no-dedupe --max-messages 100
 ```
 
 If unavailable or incompatible, consult the release README instead of inventing
@@ -66,6 +74,8 @@ authorized approach. The CLI does not automatically redact secrets.
 2. Extract transcript context
 - Start with bounded extraction.
 - Expand only when required to resolve ambiguity.
+- Include `--roles all --include-tools` only when command or verification
+  evidence is needed. A narrated success is not a demonstrated passing result.
 
 3. Build a phase map
 - 3–10 phases, goal-driven segmentation.
@@ -106,7 +116,7 @@ Produce a concise takeover brief containing:
   - retry metadata search before full regex
 - Multiple likely candidates:
   - present top candidates with rationale
-  - request explicit selection
+  - request explicit selection and stop before extraction or continuation
 - Compacted/missing early context:
   - mark unknowns explicitly
   - avoid fabricated reconstruction

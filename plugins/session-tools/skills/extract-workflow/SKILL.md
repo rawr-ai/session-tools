@@ -1,7 +1,7 @@
 ---
 name: extract-workflow
 description: |
-  This skill should be used when the user asks to "extract workflow", "create reusable workflow", "turn this into a command", "make this repeatable", "workflow from session", or needs to identify repeatable steps, decision points, and quality gates from Claude/Codex session transcripts and produce a reusable command/skill/doc artifact.
+  This skill should be used when the user asks to "extract workflow", "create reusable workflow", "turn this into a command", "make this repeatable", or "workflow from session". Derive repeatable steps, decision points, and quality gates from Claude/Codex session evidence and draft a reusable command/skill/doc artifact. For finding a conversation without synthesizing a method, use sessions; for continuing prior work, use takeover-session.
 ---
 
 <skill-usage-tracking>
@@ -34,8 +34,22 @@ This skill is self-contained and does not require other skills. If the `Sessions
 
 ## Tooling Primer (Standalone)
 
-Use `rawr-session-tools` 0.1.0 on Bun >=1.3.14. Check its version and the
-relevant subcommand's `--help`. Installation belongs to the
+Ordinary listing/reading uses available native Codex thread tools or installed
+Claude Agent SDK read helpers first; no CLI is required. Do not resume a model
+run merely to read evidence. If a native reader is missing, report that limit
+instead of claiming a custom canonical fallback. Use the optional CLI below
+only for explicit filesystem record evidence. Its filtered, normalized
+`raw_record_evidence` view is not canonical replay or byte-faithful history.
+Record which view supports the draft.
+
+Use the connected Codex tools' advertised list/read contracts. For Claude,
+TypeScript SDK `listSessions` and `getSessionMessages` were checked with
+0.3.276; consult its [official session guide](https://code.claude.com/docs/en/agent-sdk/sessions)
+and installed types for scoped, bounded reads. Prefer an existing SDK or an
+authorized disposable environment, not edits to project dependencies.
+
+Filesystem recipes use `rawr-session-tools` 0.1.1 on Bun >=1.3.14. Check its
+version and the relevant subcommand's `--help`. Installation belongs to the
 [release README](https://github.com/rawr-ai/session-tools#readme); no private
 source checkout is required.
 
@@ -45,7 +59,7 @@ rawr-session-tools sessions extract --help
 rawr-session-tools sessions list --source all --limit 5
 rawr-session-tools sessions search --query-metadata "<hint>" --source all --limit 5
 rawr-session-tools sessions resolve "<id-or-path>"
-rawr-session-tools sessions extract "<id-or-path>" --format text --no-dedupe --max-messages 100
+rawr-session-tools sessions extract "<resolved-exact-path>" --format text --no-dedupe --max-messages 100
 ```
 
 If unavailable or incompatible, consult the release README rather than inventing
@@ -58,10 +72,13 @@ required. Redact sensitive evidence before including it in any artifact.
 
 1. Select source session
 - Resolve to one concrete target before deep analysis.
-- Ask for selection when a hint or prefix leaves multiple plausible candidates.
+- Ask for selection and stop extraction when a hint or prefix leaves multiple
+  plausible candidates; ambiguous CLI resolution is not a selection mechanism.
 
 2. Capture transcript evidence
 - Start bounded; expand only when needed.
+- Include `--roles all --include-tools` when necessary to distinguish an
+  attempted action or narrated success from a captured verification result.
 
 3. Analyze for workflow primitives
 - purpose

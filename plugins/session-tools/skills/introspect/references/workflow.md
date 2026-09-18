@@ -32,7 +32,19 @@ belong to a plugin. Include the selected provider's supplied skill inventory
 and exact paths when available. Otherwise ask for one explicit provider-local
 skill root and inspect only that root; do not require a nonexistent plugin ID.
 
-Session recipes target `rawr-session-tools` 0.1.0 on Bun >=1.3.14. Check
+For sessions, ordinary listing/reading uses available native Codex thread tools
+or Claude Agent SDK read helpers first. TypeScript SDK `listSessions` and
+`getSessionMessages` were checked with 0.3.276; verify installed options and
+scope before use. For those methods and Python's read API, consult
+against the [official session guide](https://code.claude.com/docs/en/agent-sdk/sessions).
+Do not start or resume a model run just to inspect history.
+
+The CLI is optional, for explicitly needed cross-provider/multi-root regex or
+facet search, tool records, or historical metrics. Its `raw_record_evidence`
+view is filtered and normalized, not byte-faithful history or canonical replay.
+If a native reader is unavailable, report that limit instead of substituting
+custom parsing for a canonical read.
+Filesystem recipes target `rawr-session-tools` 0.1.1 on Bun >=1.3.14. Check
 `rawr-session-tools --version` and subcommand `--help`; consult the
 [release README](https://github.com/rawr-ai/session-tools#readme) if unavailable.
 
@@ -67,8 +79,14 @@ Extract the specific artifact:
 
 ```bash
 # Session by ID/path
-rawr-session-tools sessions extract "<session-id-or-path>" --max-messages 100
+rawr-session-tools sessions resolve "<session-id-or-path>" --source <source> --format text
+rawr-session-tools sessions extract "<exact-path>" --no-dedupe --max-messages 100
 ```
+
+An ambiguous ID is an error, not permission to choose the newest match. Ask for
+selection and stop extraction until the target is resolved. Report the source,
+identity, bounds, and any missing context. Add `--roles all --include-tools`
+only to close a tool-evidence gap; assistant claims alone do not verify success.
 
 For prompt/skill/agent/script content, read the exact path exposed by the current
 provider. If inventory does not identify one path, ask for the qualified plugin

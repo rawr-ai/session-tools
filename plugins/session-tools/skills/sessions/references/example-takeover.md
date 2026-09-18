@@ -1,9 +1,15 @@
 # Recover Context From A Previous Session
 
 This is a tooling-focused example. Use `takeover-session` when available for the
-full reconstruction method. Recipes target `rawr-session-tools` 0.1.0 on Bun
+full reconstruction method. Filesystem recipes target `rawr-session-tools` 0.1.1 on Bun
 >=1.3.14; check `--version` and subcommand `--help` first. Installation is
 documented in the [release README](https://github.com/rawr-ai/session-tools#readme).
+
+Ordinary recovery uses available native Codex thread tools or Claude SDK
+conversation reads; it needs no CLI. Use the optional path below only for
+explicit filesystem record evidence. It reads normalized `raw_record_evidence`,
+not byte-faithful history or canonical replay. Missing native reads are a
+reported limitation, not permission to substitute custom canonical parsing.
 
 ## Locate, Resolve, Read
 

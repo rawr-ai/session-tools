@@ -1,9 +1,15 @@
 # Derive A Reusable Workflow From Session Evidence
 
 This is a tooling-focused example. Use `extract-workflow` when available for the
-full synthesis method. Recipes target `rawr-session-tools` 0.1.0 on Bun >=1.3.14;
+full synthesis method. Filesystem recipes target `rawr-session-tools` 0.1.1 on Bun >=1.3.14;
 check `--version` and subcommand `--help` first. Installation belongs to the
 [release README](https://github.com/rawr-ai/session-tools#readme).
+
+Use available native conversation readers first; ordinary reads need no CLI.
+The optional CLI path below is for explicit filesystem record evidence. Its
+normalized `raw_record_evidence` view is neither byte-faithful history nor
+canonical conversation replay. Record the view used in the draft; do not
+substitute custom canonical parsing when a native reader is unavailable.
 
 ## Select Evidence Before Generalizing
 

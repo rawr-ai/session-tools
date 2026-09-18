@@ -1,6 +1,6 @@
 {
   "name": "rawr-session-tools",
-  "description": "Focused Claude and Codex session-search skills for the Rawr Session Tools CLI.",
+  "description": "Native-first Claude and Codex session skills, with an optional record-evidence CLI.",
   "owner": { "name": "Rawr" },
   "plugins": [
     {

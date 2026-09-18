@@ -14,7 +14,8 @@ List 3–10 phases, ordered:
 
 ### 3) Artifacts + state (Observed)
 - **Source:** `claude|codex`
-- **Session file path:** `<resolved-path>`
+- **Evidence surface:** native conversation read or normalized filesystem history
+- **Session identity:** `<native-thread-id-or-resolved-path>`
 - **Evidence window:** roles, dedupe setting, offset/message cap, and known gaps
 - **CWD / repo context:** `<cwd>` (and any project/workspace root)
 - **Git branch:** `<branch>` (if present)

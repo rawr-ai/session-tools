@@ -26,7 +26,13 @@ Ignore by default:
 Use tool events only to answer questions like:
 - “Which script did they run?”
 - “What files did they write?”
-- “Did they sync from Claude → Codex?”
+- “What verification result was actually recorded?”
+
+An assistant's claim that tests passed is observed narration, not tool-backed
+verification. Distinguish attempted commands, their captured results, and
+missing results. Also record whether the evidence is a native conversation
+view or normalized file-order history; neither a summary nor a raw record
+scan proves the complete canonical conversation survived compaction.
 
 ## 2) Segmenting a long session into phases
 
