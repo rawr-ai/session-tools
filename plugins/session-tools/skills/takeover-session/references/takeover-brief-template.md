@@ -1,45 +1,38 @@
-# Takeover Brief — Template
+# Attributable Takeover Brief
 
-Use this template as the default user-facing output after analyzing a session.
+Use only the sections needed for this recovery. Lead with what the user needs
+to know, not a transcript inventory.
 
-## Takeover brief: `<session-id-or-best-match>`
+## Decision And Why
 
-### 1) What this session was about (Observed)
-- 1–3 sentences.
+Latest supported decision and rationale, with native message/turn/item citations.
+Name the earlier alternative it superseded when consequential. Separate direct
+evidence from inferred intent; if the later window is unread, say the decision
+is provisional within the available evidence.
 
-### 2) Phase map (Observed → Inferred where needed)
-List 3–10 phases, ordered:
-1. **Phase name** — what changed / what was achieved (1–2 lines)
-2. …
+## What Actually Happened
 
-### 3) Artifacts + state (Observed)
-- **Source:** `claude|codex`
-- **Evidence surface:** native conversation read or normalized filesystem history
-- **Session identity:** `<native-thread-id-or-resolved-path>`
-- **Evidence window:** roles, dedupe setting, offset/message cap, and known gaps
-- **CWD / repo context:** `<cwd>` (and any project/workspace root)
-- **Git branch:** `<branch>` (if present)
-- **Key files touched/created:** list exact paths resolved in the session
-- **High-level commands/workflows used:** (e.g., `rawr-session-tools sessions search`)
-- **Live-state check:** what was reverified now, or explicitly not checked
+Observed actions and captured results, distinct from assistant prose claims.
+Include failures, contradictions, and missing verification. State what live
+files/branch/worktree state was checked now, or "live state not checked."
 
-### 4) Skills / methodology used (Observed)
-- Explicitly list skills referenced or “Skills used: …” lines.
-- If inferred from behavior, mark as **Inferred**.
+## Unfinished Work
 
-### 5) Open loops (Observed)
-Ranked:
-1) **Blocking:** …
-2) **High leverage:** …
-3) **Nice-to-have:** …
+Open questions, constraints, and the next useful actions. Historical approval
+does not authorize executing them. Continuation follows the current request
+and live-state checks.
 
-### 6) Adopted operating mode (Inferred, justified)
-- **Workflow invariants to continue with:** …
-- **Style conventions to match:** …
-- **Mistakes to avoid (from transcript corrections):** …
+## Evidence And Limits
 
-### 7) Ready to proceed
-State explicitly:
-> Context reconstructed; continuation remains subject to the current request and live-state checks.
+- Provider and home/source identity.
+- View and reader/version.
+- Native Claude session/message UUIDs or Codex thread/turn/item IDs; exact
+  file and supplied original record location for record evidence. Search/extraction
+  instead need quoted text and available timestamp; extraction also needs options
+  and labeled output-message position. Never invent original record indices.
+- Selected scope, page/window bounds, coverage, and diagnostics.
+- Missing pages, compaction, filters, or disagreement between record and native views.
+- Private scratch retained/deleted, only if used.
 
-If the continuation task is known, end with the next step in one line.
+For long work, add a short phase map showing consequential changes. Do not
+inflate a short session into a fixed number of phases.

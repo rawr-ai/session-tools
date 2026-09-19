@@ -36,7 +36,8 @@ scan proves the complete canonical conversation survived compaction.
 
 ## 2) Segmenting a long session into phases
 
-Your goal: 3–10 phases that describe how the session evolved.
+For long work, use a short phase map of consequential changes. A short session
+does not need an artificial minimum number of phases.
 
 ### Phase boundary signals
 
@@ -115,7 +116,15 @@ Capture “resume state” in an implementation-friendly way:
 - Any commands/workflows used
 
 Keep commands high-level; do not dump tool logs.
-Record the resolved session ID/path and extraction bounds. Before continuing,
+Trace the latest supported decision and why it changed. Cite source/home plus
+Claude UUID or Codex thread/turn/item IDs; record evidence needs its exact
+file and any supplied original record location. Search/extraction omit original
+locations: cite quoted text, available timestamp, and extraction options plus
+labeled output-message position. Never invent a record index.
+Keep view, reader, coverage, and page bounds.
+If the later decision or result window is missing, page to it or mark the
+brief partial rather than promoting an earlier plan to the final decision.
+Before continuing,
 verify live repository state rather than treating historical state as current.
 
 ## 6) Identify open loops (the continuation surface)
@@ -136,8 +145,9 @@ Use the template in `takeover-brief-template.md`.
 
 Checklist:
 - [ ] Session summary is 1–3 sentences
-- [ ] Phase map is 3–10 phases
+- [ ] Latest decision and rationale are supported; phase map only when useful
 - [ ] Observed vs inferred is respected
 - [ ] Artifacts/state are actionable
 - [ ] Open loops are clear and ranked
-- [ ] Operating mode is explicit and “ready to proceed”
+- [ ] Prose claims, attempts, and captured results are distinct, with citations
+- [ ] Continuation remains subject to the current request and live-state checks

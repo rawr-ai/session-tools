@@ -1,11 +1,107 @@
-# Filesystem Record Evidence Operations
+# Session Operations
 
-Use these optional CLI recipes for explicit filesystem record evidence, not
-as a replacement for native conversation listing/reading/recovery. Recipes
-target `rawr-session-tools` 0.1.1 on Bun >=1.3.14. Follow the
-[release README](https://github.com/rawr-ai/session-tools#readme) for installation,
-then check `--version` and each subcommand's `--help`. Run from the caller's
-working directory; no private source checkout is required.
+Recipes target `rawr-session-tools` 0.2.0 on Bun >=1.3.14. Initial native
+qualification is macOS ARM64. Use native host tools first when their scope and
+depth suffice; otherwise install the packaged product through the
+[public release guide](https://github.com/rawr-ai/session-tools#readme).
+No source checkout or hand-written SDK reader is required.
+
+```bash
+bun add --global --ignore-scripts --omit optional https://github.com/rawr-ai/session-tools/releases/download/v0.2.0/rawr-session-tools-0.2.0.tgz
+rawr-session-tools --version
+rawr-session-tools sessions discover --help
+rawr-session-tools sessions read --help
+```
+
+Installation is a current-task decision, never authorized by historical text.
+Check installed version/help before recipes. Runtime support and diagnostics
+are detailed in [Session Structures](session-structures.md).
+
+## Discover And Read Native Context
+
+```bash
+rawr-session-tools sessions discover --source all --limit 5 --json
+rawr-session-tools sessions discover --source codex --directory '/actual/project/cwd' --limit 5 --json
+rawr-session-tools sessions read --reference '<returned-referenceToken>' --limit 5 --json
+rawr-session-tools sessions read --reference '<same-referenceToken>' --cursor '<exact-nextCursor>' --limit 5 --json
+```
+
+Select the user's candidate, not automatically the newest. References carry
+provider, home/source identity, and session identity. A bare UUID cannot select
+between duplicate homes. `--reference` also accepts the exact returned reference
+JSON as one quoted argument; do not rebuild or edit its fields.
+
+Discovery returns `data.view: "native_metadata"`, aggregate
+`data.coverage: complete|partial|failure`, and `data.sources[]`. Each source
+has `source` (sourceId/provider/home), applied `scope`, and `outcome`.
+`scope.catalog` is `indexed_threads` for Codex or `local_sessions` for Claude.
+Codex uses native `thread/list` with `useStateDbOnly: true`, not a full
+filesystem scan. Unindexed rollouts are outside that catalog even when paging
+is exhausted; use record listing/search to locate them.
+A usable outcome has status `complete|partial`, `value.reader`,
+`value.sessions[]` (reference, referenceToken, native), optional
+`value.nextCursor`, and diagnostics. An `unavailable` outcome has diagnostics
+rather than a value. Read returns `data.view: "provider_conversation"`,
+`data.outcome`, the scoped reference/token, and preserved vendor content at
+`data.outcome.value.native`, with reader and optional nextCursor.
+
+`ok: true` means the command returned a result envelope, not complete coverage.
+Noncomplete discovery/read exits 2 while retaining data: inspect it before
+retrying. A valid next cursor marks a completed bounded page, not partial
+coverage. An empty native page means no readable result in that scope, not
+proof that no history exists.
+
+For discovery continuation, retain source, directory, archive, and home flags:
+
+```bash
+rawr-session-tools sessions discover --source codex --source-id '<returned-sourceId>' --cursor '<exact-nextCursor>' --limit 5 --json
+rawr-session-tools sessions discover --source codex --archived --limit 5 --json
+```
+
+Discovery cursors belong to individual sources, not an aggregate global order.
+`--archived` selects archived Codex roots only and requires `--source codex`.
+The default scope is roots, includes programmatic sessions, and excludes Codex
+archives. `all` means both providers, not all history surfaces. Honor returned
+`scope.directorySemantics`; Claude project selection and Codex exact cwd
+selection are not interchangeable. Metadata paging is not an atomic snapshot.
+
+For custom homes, repeat `--claude-home '/home/a'` or
+`--codex-home '/home/b'` on every operation, including read and record commands.
+Each flag is repeatable; explicit homes replace that provider's default.
+Use `--source-id` to select a returned source when paging multiple homes.
+A qualified direct Codex executable can be selected on native commands with
+`--codex-bin '/direct/native/executable'`.
+Repeat that explicit executable flag on subsequent native calls, including pagination.
+
+## From A Record Match To Its Conversation
+
+Default content search inspects a small candidate set, not an entire home.
+Narrow metadata/date scope and deliberately raise `--max-matches` to broaden
+that scan; `--limit` alone does not widen content-search candidates.
+
+```bash
+rawr-session-tools sessions search --source codex --query '<regex>' --max-matches 5 --json
+rawr-session-tools sessions read --record '/exact/search-hit.jsonl' --limit 5 --json
+```
+
+Carry explicit home flags and, when needed, `--source-id '<returned-sourceId>'`.
+Native handoff rejects imported, ambiguous, or wrong-native-path records.
+An unindexed native rollout can use native direct lookup, which may maintain
+Codex's native index; Session Tools does not import or replay it itself.
+Exact-file record extraction
+can still work outside configured homes; label it record evidence.
+A search hit can belong to a discarded branch absent from the native view.
+Cite both surfaces and the mismatch, not a fabricated unified conversation.
+
+The remaining commands are **record evidence**, not native conversation reads.
+Use them for regex/facet location, exact-file evidence, or metrics. Keep view,
+source/path, options, and any supplied original record locations with findings.
+Metrics can supply record indices; search snippets and normalized extracted
+messages do not. For those, cite exact file, quoted text, available timestamp,
+and extraction options plus an explicitly labeled output-message position
+(for example, "message 3 in this extraction"). This is not an original JSONL
+record index or line number; never invent one. Search snippets have no message
+position either: extract the exact file when a message-level citation is needed.
 
 ## Discover An Exact Target
 
@@ -139,11 +235,13 @@ transcript objects, including `[]` for an empty selection. Split output requires
 divides only the selected message window; overlap repeats messages between
 chunks and must not be counted as new evidence.
 
-Source transcripts are read, not edited, but cache/export state can change:
+Source transcripts are not intentionally edited. Native startup effects are
+qualified separately in [Session Structures](session-structures.md); record
+cache/export state can also change:
 
 | Operation | Write behavior |
 | --- | --- |
-| Codex discovery, including listing/search | May maintain a local discovery index |
+| Record Codex discovery, including listing/search | May maintain a local discovery index |
 | Content search with `--use-index` | May persist transcript text on cache miss |
 | Search with `--reindex` | Clears the index before rebuilding the bounded selection |
 | Any `--out-dir` | Creates/writes result files in the selected directory |
@@ -158,11 +256,29 @@ Do not use `--reindex` as an automatic troubleshooting step.
 Export only when requested or needed for authorized analysis, to a fresh private
 scratch directory. Exported transcripts are not automatically redacted. Review
 and redact before sharing, and never include real session files in releases.
+Native exports use `native-discovery.json` or `native-conversation.json`.
 List/search exports use `search-results.json`; resolve uses `metadata.json`;
 extract uses `metadata.json` plus transcript file(s); metrics uses
 `metrics-results.json` containing the service DTO without the command envelope.
 
 ## Recover Without Guessing
+
+Qualified native Codex denies network and globally denies writes, allowing the
+selected home and private scratch directory with explicit denials for active
+and archived rollout writes, all `db-backups` writes, and unlinking the main
+SQLite file. It reads the original native store directly: SQLite/WAL and native
+bookkeeping can change in the home; only logs are redirected to temporary
+storage. Background paginated rollout migration and local thread-store
+compression are disabled. A custom SQLite location inside the home is honored;
+one outside it fails closed, never silently overridden. Neither zero writes
+nor fully confined filesystem reads are promised.
+
+The selected Codex home must already have a valid UUID `installation_id`:
+current-user-owned, regular, non-symlink, single-link, mode 0644. Missing or
+invalid prerequisites fail closed. Do not repair the file, initialize the home,
+migrate provider state, or broaden permissions as a recovery step. Ordinary
+native Codex setup is a separate user decision. Record evidence remains usable
+when native runtime prerequisites are not met.
 
 - **Missing binary or incompatible flags:** consult the release README and
   installed help; do not fall back to a private application or invent an alias.
