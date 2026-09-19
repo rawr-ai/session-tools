@@ -1,7 +1,7 @@
 # Compatibility and Source Selection
 
 These are the supported runtime conditions and coverage limits for Session
-Tools 0.2.1, not a promise of universal provider-format support. Return to
+Tools 0.2.2, not a promise of universal provider-format support. Return to
 the [quick start](../README.md), follow the [usage guide](usage.md), or see
 [assistant installation](skills.md) and [privacy/local effects](privacy.md).
 
@@ -92,7 +92,7 @@ uses the native paged API without a whole-home inventory prescan. These are
 work safeguards, not an RSS guarantee or a claim that every large or changing
 home can be inspected.
 
-Version 0.2.1 does not certify every platform, provider version,
+Version 0.2.2 does not certify every platform, provider version,
 historical format, or managed enterprise configuration. Use available records
 and explicit coverage limits rather than treating successful startup as
 complete compatibility. See [privacy](privacy.md) for SQLite placement,

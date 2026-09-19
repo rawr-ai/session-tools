@@ -1,6 +1,6 @@
 # Recover A Changed Decision
 
-Use native host tools when adequate; otherwise these Session Tools 0.2.0
+Use native host tools when adequate; otherwise these Session Tools
 recipes locate and read without starting a model turn. Check installed help
 and the [release guide](https://github.com/rawr-ai/session-tools#readme).
 

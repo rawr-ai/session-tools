@@ -20,7 +20,7 @@ provider, home, actual cwd, and date. Select the requested provider; use
 candidates remain ambiguous.
 
 Prefer native host tools when their source scope and read depth suffice.
-Otherwise use packaged `rawr-session-tools` 0.2.0 discovery and native reads;
+Otherwise use packaged `rawr-session-tools` discovery and native reads;
 do not build a disposable SDK integration. See [CLI Recipes](references/cli-recipes.md)
 for the standalone path, installation, paging, and record handoff.
 

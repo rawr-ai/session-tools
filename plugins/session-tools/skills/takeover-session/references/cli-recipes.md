@@ -1,10 +1,11 @@
 # Native Recovery Recipes
 
 Use native host tools when their provider/home scope and depth suffice.
-Otherwise use packaged `rawr-session-tools` 0.2.0 on Bun >=1.3.14. Initial
+Otherwise use packaged `rawr-session-tools` on Bun >=1.3.14. Initial
 native qualification is macOS ARM64. The
-[release guide](https://github.com/rawr-ai/session-tools#readme) owns installation
-and runtime requirements; no source checkout or disposable SDK reader is needed.
+[release guide](https://github.com/rawr-ai/session-tools#readme) owns installation,
+version selection, and runtime requirements; no source checkout or disposable
+SDK reader is needed.
 
 ## Select And Read
 

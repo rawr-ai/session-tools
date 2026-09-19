@@ -18,7 +18,7 @@ configuration are different surfaces; do not infer one from another.
    not enumerate every repository/user skill; use the provider's supplied skill
    inventory or one explicitly selected local root for those.
 3. For sessions, use native host tools when scope and read depth suffice.
-   Otherwise use packaged `rawr-session-tools` 0.2.0 `discover`/`read`, not
+   Otherwise use packaged `rawr-session-tools` `discover`/`read`, not
    hand-written SDK integration. Record search/metrics remain separately
    labeled evidence. See the [workflow](references/workflow.md).
 4. Report the selected provider/source, observed items, and inventory limits.
@@ -44,7 +44,8 @@ Check installed provider versions and relevant help before inventory recipes:
 `claude plugin details <qualified-plugin-id>`. Available marketplace entries
 are not necessarily installed.
 
-For session installation, supported runtimes, and diagnostics, use the
+For session installation, version selection, supported runtimes, and diagnostics,
+use the
 [public release guide](https://github.com/rawr-ai/session-tools#readme).
 No source checkout is required. For full session mechanics, consult the
 Sessions skill when available.

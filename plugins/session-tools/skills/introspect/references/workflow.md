@@ -36,10 +36,11 @@ another home.
 ## Session Inspection
 
 Use native host tools when they cover the requested home, archive scope, and
-depth. Otherwise use packaged Session Tools 0.2.0 on Bun >=1.3.14; initial native
+depth. Otherwise use packaged Session Tools on Bun >=1.3.14; initial native
 qualification is macOS ARM64. Consult the
-[release guide](https://github.com/rawr-ai/session-tools#readme) for installation
-and runtime requirements. No SDK script or project dependency edit is needed.
+[release guide](https://github.com/rawr-ai/session-tools#readme) for installation,
+version selection, and runtime requirements. No SDK script or project dependency
+edit is needed.
 
 ```bash
 rawr-session-tools --version
