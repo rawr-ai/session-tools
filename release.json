@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "license": "MIT",
   "cli": {
     "name": "@rawr/session-tools",
     "binary": "rawr-session-tools",
-    "asset": "rawr-session-tools-0.2.0.tgz",
-    "sha256": "d8235a47ef35d7c65ac03546ef53190eccf972d409925bb342140ae32c0582fb",
+    "asset": "rawr-session-tools-0.2.1.tgz",
+    "sha256": "3f451da63ef411cd99435bf88b98351c94831a5d906be4e646ffdc8fee9910ff",
     "runtime": "Bun >=1.3.14"
   },
   "sources": {
     "implementation": {
       "owner": "Rawr",
-      "commit": "e9a5d95a8b2a59cd86985496cb4b13d2586a4cde"
+      "commit": "97cf39ad1fa19e94a060df61c16c89cd53a7c22a"
     },
     "skills": {
       "owner": "Marketplace",
-      "commit": "0d6a359c3fc825b8e42deecf5a64a847ed8c6480",
+      "commit": "fd11026ba06c7725a4800db2d8f727e9fd8fbc40",
       "paths": [
         "plugins/agents/meta/skills/extract-workflow/SKILL.md",
         "plugins/agents/meta/skills/introspect/SKILL.md",
@@ -43,7 +43,7 @@
       "takeover-session",
       "extract-workflow"
     ],
-    "cliVersion": "0.2.0"
+    "cliVersion": "0.2.1"
   },
   "inventory": [
     {
@@ -63,18 +63,38 @@
     },
     {
       "path": "README.md",
-      "size": 10849,
-      "sha256": "991f91b30eb6fde734385203714d06055af347e82834cc6a5ad1548ffcd99743"
+      "size": 3440,
+      "sha256": "4782224d603e41b47f2e604731155ee105ff15908dd6522aca1bcf221f250cf8"
+    },
+    {
+      "path": "docs/compatibility.md",
+      "size": 4823,
+      "sha256": "a95ec0e6c4c9add86fbc50efe7a81aea5099ab8a11cdc6d0db6d9981a6c4e1d2"
+    },
+    {
+      "path": "docs/privacy.md",
+      "size": 2796,
+      "sha256": "d02c52ba439bef50ff687887d620e34b5b23d9acd44fdd6954f503d776cb1064"
+    },
+    {
+      "path": "docs/skills.md",
+      "size": 4102,
+      "sha256": "b55f416ff99d64f6f2bc0a280cbd3d442717e7c1e330435d6edd74e56a2465ae"
+    },
+    {
+      "path": "docs/usage.md",
+      "size": 6207,
+      "sha256": "4c84faf2ac04b4741ce490eeecce61bd1d9903d2e1901466208b6ccf603363f6"
     },
     {
       "path": "plugins/session-tools/.claude-plugin/plugin.json",
       "size": 355,
-      "sha256": "63969fdbf1edeecebaa65a3159a31027d7ae868459bb4212b142c3333a3d38c7"
+      "sha256": "d8d5227c740f0859d8112ada45735d9760c73439404381220668256e5faf1e7f"
     },
     {
       "path": "plugins/session-tools/.codex-plugin/plugin.json",
       "size": 940,
-      "sha256": "afe2bb56cf73f600c0e31ad1887875fa61137815af1adcd17836fcc2f3f7ef57"
+      "sha256": "b47ca771a0099cce102d45c5fa15aa5583d55739952d1829caebbb47223b49a7"
     },
     {
       "path": "plugins/session-tools/LICENSE",
