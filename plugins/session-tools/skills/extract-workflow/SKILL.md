@@ -16,9 +16,10 @@ that its steps succeeded or permission to execute, install, or publish it.
 
 Select the supplied reference/path or resolve hints to one concrete candidate.
 Use native host tools when their provider/home scope and depth are adequate.
-Otherwise use `rawr-session-tools` 0.2.0 on Bun >=1.3.14 (initial native
+Otherwise use `rawr-session-tools` on Bun >=1.3.14 (initial native
 qualification: macOS ARM64). No project dependencies or hand-written SDK
-reader are needed. Installation and runtime requirements belong to the
+reader are needed. Installation, version selection, and runtime requirements
+belong to the
 [public release guide](https://github.com/rawr-ai/session-tools#readme).
 
 ```bash

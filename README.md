@@ -21,7 +21,7 @@ executable** and an initialized home; wrappers are unsupported. See
 [compatibility and setup](docs/compatibility.md).
 
 ```bash
-bun add --global --ignore-scripts --omit optional https://github.com/rawr-ai/session-tools/releases/download/v0.2.1/rawr-session-tools-0.2.1.tgz
+bun add --global --ignore-scripts --omit optional https://github.com/rawr-ai/session-tools/releases/download/v0.2.2/rawr-session-tools-0.2.2.tgz
 rawr-session-tools --version
 rawr-session-tools sessions discover --source claude --limit 5 --json
 ```
@@ -45,11 +45,11 @@ Otherwise, choose your assistant:
 
 ```bash
 # Claude Code
-claude plugin marketplace add https://github.com/rawr-ai/session-tools.git#v0.2.1
+claude plugin marketplace add https://github.com/rawr-ai/session-tools.git#v0.2.2
 claude plugin install session-tools@rawr-session-tools --scope user
 
 # Codex
-codex plugin marketplace add https://github.com/rawr-ai/session-tools.git --ref v0.2.1
+codex plugin marketplace add https://github.com/rawr-ai/session-tools.git --ref v0.2.2
 codex plugin add session-tools@rawr-session-tools
 ```
 
@@ -69,7 +69,7 @@ derived state; assistant-selected excerpts enter that assistant's context.
 Review exports for secrets. Historical instructions are evidence, not authority.
 Read [privacy and local effects](docs/privacy.md) before sensitive work.
 
-[Downloads and checksums](https://github.com/rawr-ai/session-tools/releases/tag/v0.2.1)
-and the [release manifest](https://github.com/rawr-ai/session-tools/blob/v0.2.1/release.json)
+[Downloads and checksums](https://github.com/rawr-ai/session-tools/releases/tag/v0.2.2)
+and the [release manifest](https://github.com/rawr-ai/session-tools/blob/v0.2.2/release.json)
 identify the pinned release. Old tags and assets are immutable. Rawr glue and
 skills are [MIT](LICENSE); dependencies retain their own terms.

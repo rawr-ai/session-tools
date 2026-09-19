@@ -14,11 +14,11 @@ full Rawr marketplace, and choose the assistant you use:
 
 ```bash
 # Claude Code
-claude plugin marketplace add https://github.com/rawr-ai/session-tools.git#v0.2.1
+claude plugin marketplace add https://github.com/rawr-ai/session-tools.git#v0.2.2
 claude plugin install session-tools@rawr-session-tools --scope user
 
 # Codex
-codex plugin marketplace add https://github.com/rawr-ai/session-tools.git --ref v0.2.1
+codex plugin marketplace add https://github.com/rawr-ai/session-tools.git --ref v0.2.2
 codex plugin add session-tools@rawr-session-tools
 ```
 
@@ -33,7 +33,7 @@ codex plugin list --json
 ```
 
 For a local ZIP installation, download the plugin ZIP from the
-[release](https://github.com/rawr-ai/session-tools/releases/tag/v0.2.1),
+[release](https://github.com/rawr-ai/session-tools/releases/tag/v0.2.2),
 extract the complete marketplace including hidden directories, replace the Git
 URL above with that directory, and omit Codex's `--ref`. The ZIP contains the
 skills marketplace, not the CLI runtime. Install the CLI separately.

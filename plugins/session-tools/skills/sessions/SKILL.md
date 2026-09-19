@@ -17,7 +17,7 @@ current assistant synthesizes it without starting a model run in that session.
 1. Use available native host list/read tools when they cover the requested
    provider, home, archive scope, and depth. A title or truncated summary is not
    enough for a decision or verification claim. Otherwise use packaged
-   `rawr-session-tools` 0.2.0 native `discover`/`read`; do not write an SDK helper
+   `rawr-session-tools` native `discover`/`read`; do not write an SDK helper
    or add dependencies to the user's project.
 2. Narrow by the user's provider and actual working directory. Select an exact
    source-qualified reference, not just a title or UUID. Ask when candidates
@@ -70,7 +70,8 @@ strict no-write request, explain the limit before using an unqualified reader.
 | Turn evidence into a repeatable method | [Workflow Extraction Example](references/example-extract-workflow.md) |
 
 The [public release guide](https://github.com/rawr-ai/session-tools#readme)
-owns installation and platform qualification. No source checkout is required.
+owns installation, version selection, and platform qualification. No source
+checkout is required.
 Keep this skill, introspect, takeover-session, extract-workflow, and their
 wrappers coherent when the CLI changes.
 

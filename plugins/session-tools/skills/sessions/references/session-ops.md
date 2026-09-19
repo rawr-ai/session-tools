@@ -1,13 +1,13 @@
 # Session Operations
 
-Recipes target `rawr-session-tools` 0.2.0 on Bun >=1.3.14. Initial native
+Recipes use packaged `rawr-session-tools` on Bun >=1.3.14. Initial native
 qualification is macOS ARM64. Use native host tools first when their scope and
-depth suffice; otherwise install the packaged product through the
-[public release guide](https://github.com/rawr-ai/session-tools#readme).
+depth suffice; otherwise follow the
+[public release guide](https://github.com/rawr-ai/session-tools#readme)
+for installation and version selection.
 No source checkout or hand-written SDK reader is required.
 
 ```bash
-bun add --global --ignore-scripts --omit optional https://github.com/rawr-ai/session-tools/releases/download/v0.2.0/rawr-session-tools-0.2.0.tgz
 rawr-session-tools --version
 rawr-session-tools sessions discover --help
 rawr-session-tools sessions read --help

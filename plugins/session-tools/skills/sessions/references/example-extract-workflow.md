@@ -1,6 +1,6 @@
 # Extract A Method, Not A Command Log
 
-Use `extract-workflow` for synthesis. These Session Tools 0.2.0 recipes are the
+Use `extract-workflow` for synthesis. These Session Tools recipes are the
 packaged fallback when native host tools lack sufficient scope or depth.
 Check installed help and the
 [release guide](https://github.com/rawr-ai/session-tools#readme).

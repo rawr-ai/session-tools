@@ -1,6 +1,6 @@
 # Native Readers And Record Evidence
 
-Session Tools 0.2.0 packages native access and retains the separate record
+Session Tools packages native access and retains the separate record
 tools. Use host tools first when they expose the requested source, scope, and
 full evidence depth. A host summary is not equivalent to a full native read.
 
